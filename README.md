@@ -1,2 +1,3 @@
-# OSCP_studynotes
-OSCP notes
+# OSCP
+
+OSCP study notes
