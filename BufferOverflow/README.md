@@ -275,6 +275,6 @@ on attacker machine
 nc -lvp 4444
 ```
 
-
 done :) 
+
 ![image](./images/exploitcomplete.png)
