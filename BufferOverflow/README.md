@@ -78,7 +78,7 @@ After run the script the program will crash, here we need to see the value that 
 
 Find the exact offset using the value that we have found in the EIP registry
 ```
-/usr/share/metasploit-framework/tools/exploit/pattern_offset.rb  -l 2500 -q 386F4337
+/usr/share/metasploit-framework/tools/exploit/pattern_offset.rb  -l 3000 -q 386F4337
 ```
 ![image](./images/exact_offset.png)
 
