@@ -1,14 +1,14 @@
 
 ### Initail recon
 ```
-nmap -A -sV <ip> -p- -vv
+Nmap -T4 -sV -Pn -p- IP
 ```
 
 
-### Find generic vulns
+### Find generic vulns for a specific service (this example nfs)
 
 ```
-sudon map -sV -p- --script=nfs-* <IP>
+sudon map -sV --script=nfs-* <IP>
 ```
 
 
