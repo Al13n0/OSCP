@@ -63,7 +63,8 @@ Check for service running only locally
 netstat -antpx
 ```
 
-ROOTBASH
+## EXPLOIT 
+#### ROOTBASH
 we can use this tecnquie when we found a script running as root, we can modify in this way
 ```
 #!/bin/bash
