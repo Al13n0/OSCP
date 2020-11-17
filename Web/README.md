@@ -11,6 +11,9 @@ gobuster dir -u http://10.11.1.72 -w /usr/share/SecLists/Discovery/Web-Content/c
 https://github.com/maurosoria/dirsearch
 ```
 python3 dirsearch.py -u <URL> -e <EXTENSION>
+
+//search for txt files
+python3 dirsearch.py -u https://10.10.10.60 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -f -e txt    
 ```
 
 ### Nikto
