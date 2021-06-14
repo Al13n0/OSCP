@@ -28,6 +28,12 @@ Lists all commands the user can use with sudo permissions
 sudo -l
 ```
 
+SSH directory
+
+```
+ls -l ~/.ssh
+```
+
 Which service(s) are been running by root? Of these services, which are vulnerable - it's worth a double check!
 
 ```
