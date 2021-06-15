@@ -95,7 +95,8 @@ echo $PATH.
 If you have write permissions on any folder inside the PATH variable you may be able to hijacking some libraries or binaries:
 ```
 
-
+### EXTRA Manual checks
+check tmux session and Weak NFS Privileges
 
 
 
