@@ -64,10 +64,22 @@ find / -perm /4000 -type f -exec ls -ld {} \; 2>/dev/null find all SUID files
 find / -perm -g=s -type f 2>/dev/null
 
 ```
-Check for service running only locally 
+Check for services running only locally 
 ```
 netstat -antpx
 ```
+
+Crontab. The root crontab is almost always only editable by the root user or a user with full sudo privileges; however, it can still be abused. You may find a world-writable script that runs as root and, even if you cannot read the crontab to know the exact schedule, you may be able to ascertain how often it runs (i.e., a backup script that creates a .tar.gz file every 12 hours). In this case, you can append a command onto the end of the script (such as a reverse shell one-liner), and it will execute the next time the cron job runs.
+
+```
+We can confirm that a cron job is running using pspy, a command-line tool used to view running processes without the need for root privileges. We can use it to see commands run by other users, cron jobs, etc. It works by scanning procfs.
+
+https://github.com/DominicBreuker/pspy
+
+
+```
+
+
 
 ## EXPLOIT 
 #### ROOTBASH
