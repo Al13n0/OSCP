@@ -28,6 +28,13 @@ Lists all commands the user can use with sudo permissions
 sudo -l
 ```
 
+LD_PRELOAD
+```
+sudo -l
+
+// If you find inside the output of sudo -l the sentence: env_keep+=LD_PRELOAD and you can call some command with sudo, you can escalate privileges.
+```
+
 SSH directory
 
 ```
