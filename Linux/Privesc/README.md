@@ -76,8 +76,19 @@ We can confirm that a cron job is running using pspy, a command-line tool used t
 
 https://github.com/DominicBreuker/pspy
 
+```
+
+PATH ABUSE: PATH is an environment variable that specifies the set of directories where an executable can be located. An account's PATH variable is a set of absolute paths, allowing a user to type a command without specifying the absolute path to the binary. For example, a user can type cat /tmp/test.txt instead of specifying the absolute path /bin/cat /tmp/test.txt. We can check the contents of the PATH variable by typing env | grep PATH or echo $PATH.
 
 ```
+We can check the contents of the PATH variable by typing 
+env | grep PATH or 
+echo $PATH.
+
+If you have write permissions on any folder inside the PATH variable you may be able to hijacking some libraries or binaries:
+```
+
+
 
 
 
