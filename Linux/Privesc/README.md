@@ -64,7 +64,7 @@ An SUID is a file that allows a user to execute the file with the permissions of
 
 ```
 //find all SUID files
-
+find / -perm -u=s -type f 2>/dev/null
 find / -perm /4000 -type f -exec ls -ld {} \; 2>/dev/null find all SUID files
 
 // find all SGID files
