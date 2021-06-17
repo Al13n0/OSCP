@@ -4,7 +4,7 @@
 ```
 gobuster dir -u https://10.11.1.35 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -t 50
 
-gobuster dir -u http://10.11.1.72 -w /usr/share/SecLists/Discovery/Web-Content/common.txt -s '200,204,301,302,307,403,500' -e
+gobuster dir -u http://10.11.1.72 -w /usr/share/SecLists/Discovery/Web-Content/common.txt 
 
 ```
 ### Dirsearch
