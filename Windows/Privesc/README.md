@@ -2,13 +2,22 @@
 
 ### WinPeas
 
-https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/blob/master/winPEAS/winPEASexe/winPEAS/bin/x64/Release/winPEAS.exe
+https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/blob/master/winPEAS/
 
 
 ```
+Run all checks while avoiding time-consuming searches:
+.\winPEASany.exe quiet cmd fast
 winPEAS.exe -a
 ```
+### SeatBelt
+```
+//system info
+SeatBelt.exe system
 
+// user info
+SeatBelt.exe user
+```
 
 ### PowerUP
 
