@@ -86,6 +86,7 @@ msiexec /quiet /qn /i C:\PrivEsc\reverse.msi
 ## Passwords Hunting
 
 ### Registries
+Plenty of programs store configuration options in the Windows Registry. It is always worth searching the Registry for passwords.
 ```
 // Use winPEAS to check common password locations:
 .\winPEASany.exe quiet filesinfo userinfo
@@ -93,8 +94,10 @@ msiexec /quiet /qn /i C:\PrivEsc\reverse.msi
 //manual check
 reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\winlogon"
 reg query "HKCU\Software\SimonTatham\PuTTY\Sessions" /s
+```
 
 ### Saved Creds
+Windows also allows users to save their credentials to the system, and these saved credentials can be used to bypass this requirement
  
 .\winPEASany.exe quiet cmd windowscreds
 // We can verify this manually using the following command:
