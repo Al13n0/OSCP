@@ -136,6 +136,18 @@ C:\Windows\System32\config\SYSTEM
 C:\Windows\System32\config\RegBack\system
 
 ```
+## Scheduled Tasks
+
+Windows can be configured to run tasks at specific times, periodically (e.g. every 5 mins) or when triggered
+by some event (e.g. a user logon). Tasks usually run with the privileges of the user who created them, however administrators can configure
+tasks to run as other users, including SYSTEM.
+```
+schtasks /query /fo LIST /v
+
+//powershell
+Get-ScheduledTask | where {$_.TaskPath -notlike
+"\Microsoft*"} | ft TaskName,TaskPath,State
+```
 
 ## Exploits
 
