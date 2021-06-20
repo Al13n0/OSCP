@@ -39,6 +39,16 @@ exploit/windows/local/always_install_elevated
 //Unattend
 post/windows/gather/enum_unattend`
 ```
+## Installed Applications
+Look for not standard application they might have a publice exploit that will allows us to privesc
+
+```
+.\seatbelt.exe NonstandardProcesses
+
+.\winPEASany.exe quiet processinfo
+```
+Once you find an interesting process, try to identify its version then use EXPLOITDB
+
 ## Registry exploits
 
 ### Autorun
