@@ -122,6 +122,20 @@ runas /savecred /user:admin C:\PrivEsc\reverse.exe
 findstr /si password *.xml *.ini *.txt
 
 ```
+### SAM and SYSTEM files
+Windows stores password hashes in the Security Account Manager (SAM).The hashes are encrypted with a key which can be found in a
+file named SYSTEM. If you have the ability to read the SAM and SYSTEM files, you can extract the hashes.
+```
+//try to read these files that contain user password hash
+# Usually %SYSTEMROOT% = C:\Windows
+C:\Windows\repair\SAM
+C:\Windows\System32\config\RegBack\SAM
+C:\Windows\System32\config\SAM
+C:\Windows\repair\system
+C:\Windows\System32\config\SYSTEM
+C:\Windows\System32\config\RegBack\system
+
+```
 
 ## Exploits
 
